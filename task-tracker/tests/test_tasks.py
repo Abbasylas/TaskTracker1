@@ -199,6 +199,17 @@ def test_patch_blank_title_returns_422(client):
     assert body["detail"]
 
 
+def test_patch_explicit_null_title_returns_422(client, created_task):
+    response = client.patch(
+        f"/tasks/{created_task['id']}",
+        json={"title": None},
+    )
+
+    assert response.status_code == 422
+    body = response.json()
+    assert body["detail"]
+
+
 def test_patch_title_too_long_returns_422(client):
     create_response = client.post(
         "/tasks",
