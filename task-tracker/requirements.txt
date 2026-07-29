@@ -1,0 +1,18 @@
+# Core web framework
+fastapi==0.111.0
+
+# ASGI server used to run the FastAPI app
+uvicorn[standard]==0.30.1
+
+# Data validation (installed automatically as a FastAPI dependency,
+# pinned explicitly here for clarity since it's central to this project)
+pydantic==2.7.4
+
+# Loads variables from .env into the environment (PORT, APP_ENV, etc.)
+python-dotenv==1.0.1
+
+# NOTE: These are known-good version pins at the time of writing.
+# After running `pip install -r requirements.txt`, verify the exact
+# versions actually installed in your environment with:
+#   pip freeze > requirements.lock.txt
+# and update this file if you want to lock in different versions.
